@@ -38,35 +38,50 @@
             <button type="button" id="resetBtn" class="ghost-button">Reset</button>
           </div>
 
-          <div class="form-grid">
-            <label>
-              Loan amount
-              <input id="principal" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 5000000" required />
-            </label>
-            <label>
-              Interest rate (% p.a.)
-              <input id="interestRate" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 8.5" required />
-            </label>
-            <label>
-              Tenure (years)
-              <input id="years" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 20" required />
-            </label>
-            <label>
-              Current land cost
-              <input id="currentLandCost" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 2500000" />
-            </label>
-            <label>
-              Future land value
-              <input id="futureLandValue" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 4500000" />
-            </label>
-            <label>
-              Home building value
-              <input id="homeValue" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 3000000" />
-            </label>
-            <label>
-              Home depreciation (% p.a.)
-              <input id="homeDepreciationRate" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 2" />
-            </label>
+          <div class="form-section">
+            <div class="section-copy">
+              <span>Required</span>
+              <h3>Loan Calculator</h3>
+            </div>
+            <div class="form-grid">
+              <label>
+                Loan amount
+                <input id="principal" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 5000000" required />
+              </label>
+              <label>
+                Interest rate (% p.a.)
+                <input id="interestRate" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 8.5" required />
+              </label>
+              <label>
+                Tenure (years)
+                <input id="years" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 20" required />
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="section-copy">
+              <span>Optional</span>
+              <h3>Property Details</h3>
+            </div>
+            <div class="form-grid">
+              <label>
+                Current land cost
+                <input id="currentLandCost" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 2500000" />
+              </label>
+              <label>
+                Future land value
+                <input id="futureLandValue" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 4500000" />
+              </label>
+              <label>
+                Home building value
+                <input id="homeValue" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 3000000" />
+              </label>
+              <label>
+                Home depreciation (% p.a.)
+                <input id="homeDepreciationRate" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 2" />
+              </label>
+            </div>
           </div>
 
           <button type="submit" class="primary-button">Calculate</button>
@@ -74,31 +89,46 @@
         </form>
 
         <section class="results-panel">
-          <div class="summary-grid">
-            <article class="metric-card">
-              <span>Monthly payment</span>
-              <strong id="monthlyPayment">--</strong>
-            </article>
-            <article class="metric-card">
-              <span>Total payment</span>
-              <strong id="totalPayment">--</strong>
-            </article>
-            <article class="metric-card">
-              <span>Total interest</span>
-              <strong id="totalInterest">--</strong>
-            </article>
-            <article class="metric-card">
-              <span>Land appreciation</span>
-              <strong id="landAppreciationRate">--</strong>
-            </article>
-            <article class="metric-card">
-              <span>Home depreciation</span>
-              <strong id="homeDepreciation">--</strong>
-            </article>
-            <article class="metric-card">
-              <span>Depreciation rate</span>
-              <strong id="homeDepreciationRateResult">--</strong>
-            </article>
+          <div class="result-section">
+            <div class="section-heading">
+              <p class="eyebrow">Loan Results</p>
+              <h2>EMI summary</h2>
+            </div>
+            <div class="summary-grid loan-summary">
+              <article class="metric-card highlight-card">
+                <span>Monthly EMI</span>
+                <strong id="monthlyPayment">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>Total payment</span>
+                <strong id="totalPayment">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>Total interest</span>
+                <strong id="totalInterest">--</strong>
+              </article>
+            </div>
+          </div>
+
+          <div class="result-section">
+            <div class="section-heading">
+              <p class="eyebrow">Property Insights</p>
+              <h2>Land and home value</h2>
+            </div>
+            <div class="summary-grid property-summary">
+              <article class="metric-card">
+                <span>Land appreciation</span>
+                <strong id="landAppreciationRate">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>Home depreciation</span>
+                <strong id="homeDepreciation">--</strong>
+              </article>
+              <article class="metric-card">
+                <span>Depreciation rate</span>
+                <strong id="homeDepreciationRateResult">--</strong>
+              </article>
+            </div>
           </div>
 
           <div class="insight-card">

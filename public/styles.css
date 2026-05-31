@@ -139,9 +139,38 @@ h2 {
   font-size: 22px;
 }
 
-.form-grid {
+.form-section {
   display: grid;
   gap: 14px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.form-section + .form-section {
+  margin-top: 22px;
+}
+
+.section-copy span {
+  display: inline-flex;
+  border-radius: 999px;
+  background: #ccfbf1;
+  color: var(--brand-dark);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 6px 9px;
+  text-transform: uppercase;
+}
+
+.section-copy h3 {
+  margin: 9px 0 0;
+  color: var(--ink);
+  font-size: 17px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 12px;
 }
 
 label {
@@ -206,6 +235,16 @@ input:focus {
   gap: 18px;
 }
 
+.result-section {
+  display: grid;
+  gap: 14px;
+}
+
+.section-heading {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 10px;
+}
+
 .summary-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -221,6 +260,21 @@ input:focus {
   margin-top: 8px;
   color: var(--ink);
   font-size: 25px;
+}
+
+.highlight-card {
+  border-color: rgba(15, 118, 110, 0.28);
+  background: linear-gradient(135deg, #ecfdf5, #ffffff);
+}
+
+.highlight-card strong {
+  color: var(--brand-dark);
+  font-size: 31px;
+}
+
+.property-summary .metric-card {
+  background: #f8fafc;
+  box-shadow: none;
 }
 
 .insight-card,
