@@ -24,6 +24,10 @@ function numberValue(id) {
   return Number.isFinite(value) ? value : 0;
 }
 
+function hasValue(id) {
+  return document.querySelector(`#${id}`).value.trim() !== "";
+}
+
 function formatCurrency(value) {
   return currencyFormatter.format(Number(value) || 0);
 }
@@ -34,7 +38,9 @@ function setText(id, value) {
 
 function buildPayload() {
   return fields.reduce((payload, field) => {
-    payload[field] = numberValue(field);
+    if (hasValue(field)) {
+      payload[field] = numberValue(field);
+    }
     return payload;
   }, {});
 }
@@ -87,9 +93,9 @@ function renderResults(payload, result) {
   setText("monthlyPayment", formatCurrency(monthlyPayment));
   setText("totalPayment", formatCurrency(totalPayment));
   setText("totalInterest", formatCurrency(totalInterest));
-  setText("landAppreciationRate", `${property.landAppreciationRate || "0.00"}%`);
-  setText("homeDepreciation", formatCurrency(property.homeDepreciation || 0));
-  setText("homeDepreciationRateResult", `${property.homeDepreciationRate || "0.00"}%`);
+  setText("landAppreciationRate", property.landAppreciationRate ? `${property.landAppreciationRate}%` : "--");
+  setText("homeDepreciation", property.homeDepreciation ? formatCurrency(property.homeDepreciation) : "--");
+  setText("homeDepreciationRateResult", property.homeDepreciationRate ? `${property.homeDepreciationRate}%` : "--");
 
   document.querySelector("#principalBar").style.width = `${principalShare}%`;
   document.querySelector("#interestBar").style.width = `${interestShare}%`;
@@ -100,6 +106,11 @@ function renderResults(payload, result) {
 async function calculate() {
   const payload = buildPayload();
   errorMessage.textContent = "";
+
+  if (!payload.principal || !payload.interestRate && payload.interestRate !== 0 || !payload.years) {
+    errorMessage.textContent = "Please enter loan amount, interest rate, and tenure.";
+    return;
+  }
 
   try {
     const response = await fetch("/api/loans/calculate", {
@@ -126,7 +137,15 @@ form.addEventListener("submit", (event) => {
 
 resetBtn.addEventListener("click", () => {
   form.reset();
-  calculate();
+  errorMessage.textContent = "";
+  setText("heroEmi", "--");
+  setText("monthlyPayment", "--");
+  setText("totalPayment", "--");
+  setText("totalInterest", "--");
+  setText("landAppreciationRate", "--");
+  setText("homeDepreciation", "--");
+  setText("homeDepreciationRateResult", "--");
+  document.querySelector("#principalBar").style.width = "0%";
+  document.querySelector("#interestBar").style.width = "0%";
+  document.querySelector("#scheduleBody").innerHTML = "";
 });
-
-calculate();

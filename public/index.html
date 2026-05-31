@@ -23,8 +23,8 @@
         </div>
         <div class="hero-card">
           <span>Monthly EMI</span>
-          <strong id="heroEmi">₹0</strong>
-          <small>Calculated instantly from your inputs</small>
+          <strong id="heroEmi">--</strong>
+          <small>Enter details and calculate</small>
         </div>
       </section>
 
@@ -41,31 +41,31 @@
           <div class="form-grid">
             <label>
               Loan amount
-              <input id="principal" type="text" inputmode="decimal" autocomplete="off" value="5000000" required />
+              <input id="principal" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 5000000" required />
             </label>
             <label>
               Interest rate (% p.a.)
-              <input id="interestRate" type="text" inputmode="decimal" autocomplete="off" value="8.5" required />
+              <input id="interestRate" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 8.5" required />
             </label>
             <label>
               Tenure (years)
-              <input id="years" type="text" inputmode="decimal" autocomplete="off" value="20" required />
+              <input id="years" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 20" required />
             </label>
             <label>
               Current land cost
-              <input id="currentLandCost" type="text" inputmode="decimal" autocomplete="off" value="2500000" />
+              <input id="currentLandCost" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 2500000" />
             </label>
             <label>
               Future land value
-              <input id="futureLandValue" type="text" inputmode="decimal" autocomplete="off" value="4500000" />
+              <input id="futureLandValue" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 4500000" />
             </label>
             <label>
               Home building value
-              <input id="homeValue" type="text" inputmode="decimal" autocomplete="off" value="3000000" />
+              <input id="homeValue" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 3000000" />
             </label>
             <label>
               Home depreciation (% p.a.)
-              <input id="homeDepreciationRate" type="text" inputmode="decimal" autocomplete="off" value="2" />
+              <input id="homeDepreciationRate" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex: 2" />
             </label>
           </div>
 
@@ -77,27 +77,27 @@
           <div class="summary-grid">
             <article class="metric-card">
               <span>Monthly payment</span>
-              <strong id="monthlyPayment">₹0</strong>
+              <strong id="monthlyPayment">--</strong>
             </article>
             <article class="metric-card">
               <span>Total payment</span>
-              <strong id="totalPayment">₹0</strong>
+              <strong id="totalPayment">--</strong>
             </article>
             <article class="metric-card">
               <span>Total interest</span>
-              <strong id="totalInterest">₹0</strong>
+              <strong id="totalInterest">--</strong>
             </article>
             <article class="metric-card">
               <span>Land appreciation</span>
-              <strong id="landAppreciationRate">0%</strong>
+              <strong id="landAppreciationRate">--</strong>
             </article>
             <article class="metric-card">
               <span>Home depreciation</span>
-              <strong id="homeDepreciation">₹0</strong>
+              <strong id="homeDepreciation">--</strong>
             </article>
             <article class="metric-card">
               <span>Depreciation rate</span>
-              <strong id="homeDepreciationRateResult">0%</strong>
+              <strong id="homeDepreciationRateResult">--</strong>
             </article>
           </div>
 
