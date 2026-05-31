@@ -19,7 +19,8 @@ const currencyFormatter = new Intl.NumberFormat("en-IN", {
 });
 
 function numberValue(id) {
-  const value = Number(document.querySelector(`#${id}`).value);
+  const rawValue = document.querySelector(`#${id}`).value;
+  const value = Number(rawValue.replace(/,/g, "").trim());
   return Number.isFinite(value) ? value : 0;
 }
 
