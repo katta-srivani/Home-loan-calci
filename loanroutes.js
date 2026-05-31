@@ -33,7 +33,9 @@ router.post('/calculate', (req, res) => {
         if (principal !== undefined && interestRate !== undefined && years !== undefined) {
             const monthlyInterestRate = interestRate / 100 / 12;
             const numberOfPayments = years * 12;
-            const monthlyPayment = (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+            const monthlyPayment = monthlyInterestRate === 0
+                ? principal / numberOfPayments
+                : (principal * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
             const totalPayment = monthlyPayment * numberOfPayments;
             const totalInterest = totalPayment - principal;
 

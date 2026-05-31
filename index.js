@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const loanRoutes = require('../routes/loanroutes'); 
+const path = require('path');
+const loanRoutes = require('./loanroutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,16 +11,17 @@ app.use(cors());
 
 // Middleware to parse JSON requests
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Use loan routes
 app.use('/api/loans', loanRoutes); // Prefix for loan routes
 
 // Basic route
 app.get('/', (req, res) => {
-    res.send('Loan calculator');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${3000}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

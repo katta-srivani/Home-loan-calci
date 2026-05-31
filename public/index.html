@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f766e" />
+    <meta
+      name="description"
+      content="Home loan EMI, total interest, property appreciation, and depreciation calculator."
+    />
+    <title>Home Loan Calculator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Home Finance Planner</p>
+          <h1>Home Loan Calculator</h1>
+          <p>
+            Estimate EMI, total payment, interest cost, land appreciation, and home depreciation in one clean view.
+          </p>
+        </div>
+        <div class="hero-card">
+          <span>Monthly EMI</span>
+          <strong id="heroEmi">₹0</strong>
+          <small>Calculated instantly from your inputs</small>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <form id="loanForm" class="calculator-card">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Inputs</p>
+              <h2>Loan details</h2>
+            </div>
+            <button type="button" id="resetBtn" class="ghost-button">Reset</button>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              Loan amount
+              <input id="principal" type="number" min="1" step="1000" value="5000000" required />
+            </label>
+            <label>
+              Interest rate (% p.a.)
+              <input id="interestRate" type="number" min="0" step="0.01" value="8.5" required />
+            </label>
+            <label>
+              Tenure (years)
+              <input id="years" type="number" min="1" step="1" value="20" required />
+            </label>
+            <label>
+              Current land cost
+              <input id="currentLandCost" type="number" min="1" step="1000" value="2500000" />
+            </label>
+            <label>
+              Future land value
+              <input id="futureLandValue" type="number" min="1" step="1000" value="4500000" />
+            </label>
+            <label>
+              Home building value
+              <input id="homeValue" type="number" min="1" step="1000" value="3000000" />
+            </label>
+            <label>
+              Home depreciation (% p.a.)
+              <input id="homeDepreciationRate" type="number" min="0" step="0.01" value="2" />
+            </label>
+          </div>
+
+          <button type="submit" class="primary-button">Calculate</button>
+          <p id="errorMessage" class="error-message" role="alert"></p>
+        </form>
+
+        <section class="results-panel">
+          <div class="summary-grid">
+            <article class="metric-card">
+              <span>Monthly payment</span>
+              <strong id="monthlyPayment">₹0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Total payment</span>
+              <strong id="totalPayment">₹0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Total interest</span>
+              <strong id="totalInterest">₹0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Land appreciation</span>
+              <strong id="landAppreciationRate">0%</strong>
+            </article>
+            <article class="metric-card">
+              <span>Home depreciation</span>
+              <strong id="homeDepreciation">₹0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Depreciation rate</span>
+              <strong id="homeDepreciationRateResult">0%</strong>
+            </article>
+          </div>
+
+          <div class="insight-card">
+            <div>
+              <p class="eyebrow">Payment Mix</p>
+              <h2>Principal vs Interest</h2>
+            </div>
+            <div class="bar-track">
+              <span id="principalBar"></span>
+              <span id="interestBar"></span>
+            </div>
+            <div class="legend">
+              <span><i class="principal-dot"></i> Principal</span>
+              <span><i class="interest-dot"></i> Interest</span>
+            </div>
+          </div>
+
+          <div class="table-card">
+            <div class="card-heading">
+              <div>
+                <p class="eyebrow">Preview</p>
+                <h2>First 12 months</h2>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Month</th>
+                    <th>Principal</th>
+                    <th>Interest</th>
+                    <th>Balance</th>
+                  </tr>
+                </thead>
+                <tbody id="scheduleBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
